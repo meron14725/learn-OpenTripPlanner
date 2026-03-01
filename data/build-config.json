@@ -1,0 +1,8 @@
+{
+  "transitServiceStart": "2026-01-01",
+  "transitServiceEnd": "2026-12-31",
+  "osmDefaults": {
+    "osmTagMapping": "DEFAULT",
+    "timeZone": "Asia/Tokyo"
+  }
+}
