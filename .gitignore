@@ -1,0 +1,19 @@
+# TrainGTFSGenerator is a separate git repository (https://github.com/fksms/TrainGTFSGenerator)
+# Managed independently; the generated GTFS files are committed to data/GTFS-data/
+TrainGTFSGenerator/
+
+# macOS duplicate files
+*\ 2.zip
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+
+# OTP2 large binary files (generated / downloaded)
+data/*.pbf
+data/*.obj
+otp.jar
