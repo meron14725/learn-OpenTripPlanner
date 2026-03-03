@@ -6,6 +6,9 @@ TrainGTFSGenerator/
 *\ 2.zip
 .DS_Store
 
+# TrainGTFSGenerator source JSON data (stations, timetables, etc.)
+data/json-data/
+
 # Python
 __pycache__/
 *.pyc
