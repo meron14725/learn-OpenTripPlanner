@@ -1,25 +1,16 @@
-STATION_COORDS: dict[str, tuple[float, float]] = {
-    "渋谷":    (35.6580, 139.7016),
-    "新宿":    (35.6896, 139.7006),
-    "高円寺":  (35.7028, 139.6490),
-    "東京":    (35.6812, 139.7671),
-    "品川":    (35.6284, 139.7387),
-    "池袋":    (35.7295, 139.7109),
-    "上野":    (35.7141, 139.7774),
-    "秋葉原":  (35.6984, 139.7731),
-    "横浜":    (35.4657, 139.6221),
-    "恵比寿":  (35.6467, 139.7101),
-    "目黒":    (35.6334, 139.7156),
-    "五反田":  (35.6258, 139.7233),
-    "大崎":    (35.6197, 139.7280),
-    "浜松町":  (35.6551, 139.7566),
-    "有楽町":  (35.6751, 139.7634),
-    "神田":    (35.6918, 139.7709),
-    "御茶ノ水": (35.6998, 139.7659),
-    "中野":    (35.7075, 139.6664),
-    "吉祥寺":  (35.7028, 139.5796),
-    "三鷹":    (35.7025, 139.5601),
-}
+import json
+from pathlib import Path
+
+_COORDS_FILE = Path(__file__).parent / "station_coords.json"
+
+
+def _load_station_coords() -> dict[str, tuple[float, float]]:
+    with open(_COORDS_FILE, encoding="utf-8") as f:
+        raw = json.load(f)
+    return {name: tuple(coords) for name, coords in raw.items()}
+
+
+STATION_COORDS = _load_station_coords()
 
 
 def geocode(station_name: str) -> tuple[float, float]:
@@ -27,6 +18,6 @@ def geocode(station_name: str) -> tuple[float, float]:
     name = station_name.replace("駅", "").strip()
     if name not in STATION_COORDS:
         raise ValueError(
-            f"未対応の駅名: '{name}' — backend/services/geocoder.py の STATION_COORDS に追加してください"
+            f"未対応の駅名: '{name}' — GTFS データに含まれていない駅です"
         )
     return STATION_COORDS[name]
