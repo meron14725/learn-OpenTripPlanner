@@ -17,3 +17,6 @@ __pycache__/
 data/*.pbf
 data/*.obj
 otp.jar
+
+# GTFS-data backup directory (moved from data/GTFS-data to project root)
+GTFS-data/
