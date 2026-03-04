@@ -24,3 +24,10 @@ otp.jar
 # GTFS-data backup directory (moved from data/GTFS-data to project root)
 GTFS-data/
 data/osm/*.osm.pbf
+
+# OTP2 build directories (symlink scaffolding, machine-specific)
+data/build-baseline/
+data/build-4pref/
+
+# OTP2 build logs (large, generated)
+logs/
